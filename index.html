@@ -1,0 +1,39 @@
+<html>
+<head>
+<meta http-equiv="Content-Script-Type"content="text/javascript">
+<meta http-equiv="Content-type"conteny="text/html;charset=UTF-8">
+<title>タイトル</title>
+
+<script type="text/javascript">
+<!--
+
+var count = 0;
+function clickcheck() {
+     ++count;
+     alert ("クリック回数 :" + count);
+}     
+
+//-->
+</script>
+</head>
+
+<body bgcolor="#FFFFFF">
+<noscript>
+<h1>JavaScriptを有効にしてください</h1>
+</noscript>
+
+<h1>イベントハンドラのテスト</h1>
+<form>
+<p>
+<input type="button" value="クリック"
+       onclick="clickcheck()">
+</p>
+</form>
+
+<script type="text/javascript">
+<!--
+
+//-->
+</script>
+</body>
+</html>
