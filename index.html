@@ -2,16 +2,86 @@
 <head>
 <meta http-equiv="Content-Script-Type"content="text/javascript">
 <meta http-equiv="Content-type"conteny="text/html;charset=UTF-8">
-<title>タイトル</title>
+<title>動く絵</title>
 
 <script type="text/javascript">
 <!--
 
-var count = 0;
-function clickcheck() {
-     ++count;
-     alert ("クリック回数 :" + count);
+var time;
+var ballx;	// ボールのＸ(左)座標
+var bally;	// ボールのＹ(上)座標
+
+window.onload = function() {
+     document.form1.ue.onclick = osuue;
+     document.form1.sita.onclick = osusita;
+     document.form1.hidari.onclick = osuhidari;
+     document.form1.migi.onclick = osumigi;
+     document.form1.st.onclick = osust;
+}
+
+//--------------------------------------------------
+// レイヤーの位置指定
+//	lyr = レイヤー名
+//	(x,y) = 位置
+//--------------------------------------------------
+function lyrSetPos( lyr , x , y ) {
+    document.getElementById( lyr ).style.pixelLeft = x;
+    document.getElementById( lyr ).style.pixelTop  = y;
+}
+//--------------------------------------------------
+// レイヤーの座標取得
+//	lyr = レイヤー名
+//--------------------------------------------------
+// 左
+function lyrGetLeft( lyr ){
+    return( parseInt( document.getElementById( lyr ).style.pixelLeft ) );
+    return( 0 );
+}
+// 上
+function lyrGetTop( lyr ){
+    return( parseInt( document.getElementById( lyr ).style.pixelTop ) );
+    return( 0 );
+}
+
+function osuue() {
+     clearTimeout(time);
+     ballx = lyrGetLeft( "my" );	// ballx にレイヤーのＸ座標を代入
+     bally = lyrGetTop( "my" );		// bally にレイヤーのＹ座標を代入
+     bally = bally - 5;                // bally を 5 減らす
+     lyrSetPos( "my" , ballx , bally );	// レイヤーの座標を設定
+     time=setTimeout("osuue()",50);
 }     
+
+function osusita() {
+     clearTimeout(time);
+     ballx = lyrGetLeft( "my" );	// ballx にレイヤーのＸ座標を代入
+     bally = lyrGetTop( "my" );		// bally にレイヤーのＹ座標を代入
+     bally = bally + 5;			// bally を 5 増やす
+     lyrSetPos( "my" , ballx , bally );	// レイヤーの座標を設定
+     time=setTimeout("osusita()",50);
+}     
+
+function osuhidari() {
+     clearTimeout(time);
+     ballx = lyrGetLeft( "my" );	// ballx にレイヤーのＸ座標を代入
+     bally = lyrGetTop( "my" );		// bally にレイヤーのＹ座標を代入
+     ballx = ballx - 5;			// ballx を 5 減らす
+     lyrSetPos( "my" , ballx , bally );	// レイヤーの座標を設定
+     time=setTimeout("osuhidari()",50);
+}     
+
+function osumigi() {
+     clearTimeout(time);
+     ballx = lyrGetLeft( "my" );	// ballx にレイヤーのＸ座標を代入
+     bally = lyrGetTop( "my" );		// bally にレイヤーのＹ座標を代入
+     ballx = ballx + 5;			// ballx を 5 増やす
+     lyrSetPos( "my" , ballx , bally );	// レイヤーの座標を設定
+     time=setTimeout("osumigi()",50);
+}     
+
+function osust() {
+     clearTimeout(time);
+}
 
 //-->
 </script>
@@ -22,18 +92,42 @@ function clickcheck() {
 <h1>JavaScriptを有効にしてください</h1>
 </noscript>
 
-<h1>イベントハンドラのテスト</h1>
-<form>
-<p>
-<input type="button" value="クリック"
-       onclick="clickcheck()">
-</p>
-</form>
-
 <script type="text/javascript">
 <!--
 
 //-->
 </script>
+
+<div id="my"
+     style="position:absolute; left:480px; top:400px;">
+<img src="bb01.gif" width="20" height="20">
+</div>
+
+<form name="form1">
+<p>
+
+<div style = "position:absolute;left: 320 px; top: 480px">
+<input name="ue" type="button" value="↑">
+</div>
+
+<div style = "position:absolute;left: 300 px; top: 500px">
+<input name="hidari" type="button" value="←">
+</div>
+
+<div style = "position:absolute;left: 340 px; top: 500px">
+<input name="migi" type="button" value="→">
+</div>
+
+<div style = "position:absolute;left: 320 px; top: 520px">
+<input name="sita" type="button" value="↓">
+</div>
+
+<div style = "position:absolute;left: 320 px; top: 500px">
+<input name="st" type="button" value="＊">
+</div>
+
+</p>
+</form>
+
 </body>
 </html>
