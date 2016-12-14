@@ -1,133 +1,59 @@
-ï»¿<html>
-<head>
-<meta http-equiv="Content-Script-Type"content="text/javascript">
-<meta http-equiv="Content-type"conteny="text/html;charset=UTF-8">
-<title>å‹•ãçµµ</title>
-
-<script type="text/javascript">
-<!--
-
-var time;
-var ballx;	// ãƒœãƒ¼ãƒ«ã®ï¼¸(å·¦)åº§æ¨™
-var bally;	// ãƒœãƒ¼ãƒ«ã®ï¼¹(ä¸Š)åº§æ¨™
-
-window.onload = function() {
-     document.form1.ue.onclick = osuue;
-     document.form1.sita.onclick = osusita;
-     document.form1.hidari.onclick = osuhidari;
-     document.form1.migi.onclick = osumigi;
-     document.form1.st.onclick = osust;
-}
-
-//--------------------------------------------------
-// ãƒ¬ã‚¤ãƒ¤ãƒ¼ã®ä½ç½®æŒ‡å®š
-//	lyr = ãƒ¬ã‚¤ãƒ¤ãƒ¼å
-//	(x,y) = ä½ç½®
-//--------------------------------------------------
-function lyrSetPos( lyr , x , y ) {
-    document.getElementById( lyr ).style.pixelLeft = x;
-    document.getElementById( lyr ).style.pixelTop  = y;
-}
-//--------------------------------------------------
-// ãƒ¬ã‚¤ãƒ¤ãƒ¼ã®åº§æ¨™å–å¾—
-//	lyr = ãƒ¬ã‚¤ãƒ¤ãƒ¼å
-//--------------------------------------------------
-// å·¦
-function lyrGetLeft( lyr ){
-    return( parseInt( document.getElementById( lyr ).style.pixelLeft ) );
-    return( 0 );
-}
-// ä¸Š
-function lyrGetTop( lyr ){
-    return( parseInt( document.getElementById( lyr ).style.pixelTop ) );
-    return( 0 );
-}
-
-function osuue() {
-     clearTimeout(time);
-     ballx = lyrGetLeft( "my" );	// ballx ã«ãƒ¬ã‚¤ãƒ¤ãƒ¼ã®ï¼¸åº§æ¨™ã‚’ä»£å…¥
-     bally = lyrGetTop( "my" );		// bally ã«ãƒ¬ã‚¤ãƒ¤ãƒ¼ã®ï¼¹åº§æ¨™ã‚’ä»£å…¥
-     bally = bally - 5;                // bally ã‚’ 5 æ¸›ã‚‰ã™
-     lyrSetPos( "my" , ballx , bally );	// ãƒ¬ã‚¤ãƒ¤ãƒ¼ã®åº§æ¨™ã‚’è¨­å®š
-     time=setTimeout("osuue()",50);
-}     
-
-function osusita() {
-     clearTimeout(time);
-     ballx = lyrGetLeft( "my" );	// ballx ã«ãƒ¬ã‚¤ãƒ¤ãƒ¼ã®ï¼¸åº§æ¨™ã‚’ä»£å…¥
-     bally = lyrGetTop( "my" );		// bally ã«ãƒ¬ã‚¤ãƒ¤ãƒ¼ã®ï¼¹åº§æ¨™ã‚’ä»£å…¥
-     bally = bally + 5;			// bally ã‚’ 5 å¢—ã‚„ã™
-     lyrSetPos( "my" , ballx , bally );	// ãƒ¬ã‚¤ãƒ¤ãƒ¼ã®åº§æ¨™ã‚’è¨­å®š
-     time=setTimeout("osusita()",50);
-}     
-
-function osuhidari() {
-     clearTimeout(time);
-     ballx = lyrGetLeft( "my" );	// ballx ã«ãƒ¬ã‚¤ãƒ¤ãƒ¼ã®ï¼¸åº§æ¨™ã‚’ä»£å…¥
-     bally = lyrGetTop( "my" );		// bally ã«ãƒ¬ã‚¤ãƒ¤ãƒ¼ã®ï¼¹åº§æ¨™ã‚’ä»£å…¥
-     ballx = ballx - 5;			// ballx ã‚’ 5 æ¸›ã‚‰ã™
-     lyrSetPos( "my" , ballx , bally );	// ãƒ¬ã‚¤ãƒ¤ãƒ¼ã®åº§æ¨™ã‚’è¨­å®š
-     time=setTimeout("osuhidari()",50);
-}     
-
-function osumigi() {
-     clearTimeout(time);
-     ballx = lyrGetLeft( "my" );	// ballx ã«ãƒ¬ã‚¤ãƒ¤ãƒ¼ã®ï¼¸åº§æ¨™ã‚’ä»£å…¥
-     bally = lyrGetTop( "my" );		// bally ã«ãƒ¬ã‚¤ãƒ¤ãƒ¼ã®ï¼¹åº§æ¨™ã‚’ä»£å…¥
-     ballx = ballx + 5;			// ballx ã‚’ 5 å¢—ã‚„ã™
-     lyrSetPos( "my" , ballx , bally );	// ãƒ¬ã‚¤ãƒ¤ãƒ¼ã®åº§æ¨™ã‚’è¨­å®š
-     time=setTimeout("osumigi()",50);
-}     
-
-function osust() {
-     clearTimeout(time);
-}
-
-//-->
-</script>
-</head>
-
-<body bgcolor="#FFFFFF">
-<noscript>
-<h1>JavaScriptã‚’æœ‰åŠ¹ã«ã—ã¦ãã ã•ã„</h1>
-</noscript>
-
-<script type="text/javascript">
-<!--
-
-//-->
-</script>
-
-<div id="my"
-     style="position:absolute; left:480px; top:400px;">
-<img src="bb01.gif" width="20" height="20">
-</div>
-
-<form name="form1">
-<p>
-
-<div style = "position:absolute;left: 320 px; top: 480px">
-<input name="ue" type="button" value="â†‘">
-</div>
-
-<div style = "position:absolute;left: 300 px; top: 500px">
-<input name="hidari" type="button" value="â†">
-</div>
-
-<div style = "position:absolute;left: 340 px; top: 500px">
-<input name="migi" type="button" value="â†’">
-</div>
-
-<div style = "position:absolute;left: 320 px; top: 520px">
-<input name="sita" type="button" value="â†“">
-</div>
-
-<div style = "position:absolute;left: 320 px; top: 500px">
-<input name="st" type="button" value="ï¼Š">
-</div>
-
-</p>
-</form>
-
-</body>
+<html>
+	<head>
+		<title>‰æ‘œˆ—ƒ‰ƒCƒ“ƒgƒŒ[ƒT[i‰¼j</title>
+	</head>
+	
+	<body>
+		<h1 align="center">‰æ‘œˆ—ƒ‰ƒCƒ“ƒgƒŒ[ƒT[i‰¼j</h1>
+		<hr>
+		<h2>‚OD‚Í‚¶‚ß‚É</h2>
+			‚±‚Ìƒy[ƒW‚Í<a href ="http://www.adventar.org/calendars/1423">OIT Advent Calendar 2016</a>‚Ì‹LŽ–‚Å‚·B<br>
+			‚Ü‚½AŽ„‚Í•’iƒuƒƒO‚ð‘‚¢‚Ä‚¢‚È‚¢‚½‚ß‚±‚Ìƒy[ƒW‚ÍHTML‚Å‘‚¢‚Ä‚¢‚Ü‚·B‚»‚Ì‚½‚ßAŒ©‚½–Ú‚ª”÷–­‚Å‚·‚ª‚²—¹³‚­‚¾‚³‚¢B<br>
+			<br>
+			‚Å‚ÍAŠÈ’P‚ÉŽ©ŒÈÐ‰î‚©‚çA<br>
+			OIT‚ÌIS‰ÈŠ‘®‚ÌB14074‚Å‚·B<br>
+			•”Šˆ“®‚Æ‚µ‚ÄAUbiquitousRobotLab.@Šw¶ƒvƒƒWƒFƒNƒg‚Æ‚µ‚ÄA‹£‹ZƒvƒƒOƒ‰ƒ~ƒ“ƒO‚ð‚â‚Á‚Ä‚¢‚Ü‚·B<br>
+			Žï–¡‚ÍA‚Z‚Ì•”Šˆ‚©‚ç‚â‚Á‚Ä‚¢‚éƒƒ{ƒbƒg§ì‚Å‚·B<br>
+			‚±‚Ìƒy[ƒW‚ÍA‚»‚ÌŽï–¡‚Å‚â‚Á‚Ä‚¢‚é“à—e‚Ìˆê•”‚ð’´“K“–‚É—Ís‚«‚é‚Ü‚Å‘‚¢‚Ä‚¢‚«‚Ü‚·B<br>
+			
+			
+		<h2>‚PDƒ‰ƒCƒ“ƒgƒŒ[ƒT[‚Æ‚Í</h2>
+		ƒ‰ƒCƒ“ƒgƒŒ[ƒT[‚Æ‚ÍAƒR[ƒX‚Ì’†‰›‚É‚ ‚éü‚ðƒZƒ“ƒT[‚Å’T‚µ‚È‚ª‚çA‚»‚Ìã‚ð‘–‚éŽÔŒ^ƒƒ{ƒbƒg‚Å‚·B
+		<img src="ƒR[ƒX.jpg"><br>
+		<img src="ƒAƒhƒoƒ“ƒX.jpg"><br>
+		ƒ}ƒVƒ“‚Ìæ’[‚É‚Â‚¢‚Ä‚¢‚é‚à‚Ì‚ªÔŠOüƒZƒ“ƒT[‚Å‚·B<br><br>
+		<img src="ÔŠOü.jpg"><br>
+		‚±‚ÌƒZƒ“ƒT[‚ÅƒR[ƒX‚Ì”’•‚ð”»’f‚µA”’ü‚ÆŽÔ‘Ì‚ÌƒYƒŒ‚ð”»’èB<br>
+		‚»‚µ‚ÄAƒYƒŒ‚ðC³‚·‚é‚æ‚¤‚Éƒnƒ“ƒhƒ‹‚ð‹È‚°‚È‚ª‚ç‘–s‚³‚¹‚Ü‚·B
+		
+		<h2>‚QD‰æ‘œ‚©‚çƒ‰ƒCƒ“ˆÊ’u‚ð”»’f‚·‚é</h2>
+		ÔŠOüƒZƒ“ƒT[‚Ì‘ã‚í‚è‚ÉAƒJƒƒ‰‚ðŽg—p‚µ‚Ä‘–s‚³‚¹‚Ü‚·B<br>
+		<img src="ƒJƒƒ‰.jpg"><br>
+		<img src="ƒJƒƒ‰‘O.jpg"><br>
+		‚±‚ÌƒJƒƒ‰‚ÅŽB‰e‚·‚é‚Æ‰º‚Ì‚æ‚¤‚È‰æ‘œ‚ª“¾‚ç‚ê‚Ü‚·B<br><br>
+		<img src="2d.jpg"><br>
+		‚»‚µ‚ÄAŽÀÛ‚Í”’ü‚ÌˆÊ’u‚ª”»’f‚Å‚«‚ê‚Î‚¢‚¢‚Ì‚ÅAˆês‚¾‚¯Žg—p‚µ‚Ü‚·B<br><br>
+		<img src="1d.jpg"><br>
+		‚Ü‚½Aˆê”Ô–¾‚é‚¢F‚Ì”’‚Í128,ˆê”ÔˆÃ‚¢F‚Ì•‚Í0‚Æ‚µ‚ÄA”’l‚ð”z—ñ‚ÉŠi”[‚µ‚Ü‚·B<br>
+		‚È‚¨A‰¡‚Ìbit”‚Í‚P‚Q‚WŒÂ‚Æ‚µ‚Ü‚·B<br>
+		‚·‚é‚ÆA”z—ñ‚ÌŠe”’l‚ðƒOƒ‰ƒt‰»‚·‚é‚ÆˆÈ‰º‚Ì‚æ‚¤‚É‚È‚è‚Ü‚·B<br>
+		Žè‘‚«‚Å‚·‚¢‚Ü‚¹‚ñ<br>
+		<img src="ƒOƒ‰ƒt.jpg"><br>
+		ŽÀÛ‚ÍA”’•‚Ì‹«–Ú‚ª‚Ú‚â‚¯‚ÄŒ©‚¦‚é‚Ì‚ÅA‹éŒ`”g‚Å‚Í‚È‚­³Œ·”gH‹ÈüH‚É‚È‚è‚Ü‚·B<br>
+		‚³‚ç‚ÉA‚±‚ÌƒOƒ‰ƒt‚ð”÷•ª‚µ‚Ü‚·B<br>
+		<img src="”÷•ª.jpg"><br>
+		‚±‚Ì”’l‚©‚çAÅ‘å’l‚ÆÅ¬’l‚Ì“Y‚¦Žš‚ðŒ©‚Â‚¯‚Ü‚·B<br>
+		‚·‚é‚ÆAMAX-MIN‚ª”’ü‚Ì‘¾‚³B<br>
+		iMAX+MINj/‚Q‚ª”’ü‚ÌˆÊ’u‚Æ”»’f‚Å‚«‚Ü‚·B<br>
+		
+		
+		<h2>‚RDƒ‰ƒCƒ“ˆÊ’u‚©‚çƒnƒ“ƒhƒ‹‚ð“®‚©‚·</h2>
+		ŽŸ‚ÍAƒ‰ƒCƒ“ˆÊ’u‚ª•ª‚©‚Á‚½‚Ì‚ÅAƒnƒ“ƒhƒ‹‚ð‹È‚°‚é—Í‚ðŒvŽZ‚µ‚Ü‚·B<br>
+		•û–@‚»‚µ‚ÄA<a href ="https://ja.wikipedia.org/wiki/PID%E5%88%B6%E5%BE%A1">PID§Œä</a>‚Æ‚©ŒÃ“T§Œä‚Æ‚æ‚Î‚ê‚é•ûŽ®‚ðŽg—p‚µ‚Ü‚·B<br>
+		‰ðà‚Í‘å•Ïi‚Å‚«‚»‚¤‚É‚È‚¢j‚È‚Ì‚ÅÈ—ª‚µ‚Ü‚·B
+		<br><br>
+		‚»‚ë‚»‚ë–°‚­‚È‚Á‚Ä‚«‚½‚Ì‚ÅI‚í‚è‚Ü‚·B<br>
+		“Ç‚ñ‚Å‚­‚ê‚½•ûA‚ ‚è‚ª‚Æ‚¤‚²‚´‚¢‚Ü‚·B‹»–¡‚ª‚ ‚ê‚ÎA‘åŠw“à‚ÅŽ„‚ð’T‚µ‚Ä‚­‚¾‚³‚¢B<br>
+		
+	</body>
 </html>
