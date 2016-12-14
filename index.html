@@ -1,59 +1,59 @@
-<html>
+﻿<html>
 	<head>
-		<title>�摜�������C���g���[�T�[�i���j</title>
+		<title>画像処理ライントレーサー（仮）</title>
 	</head>
 	
 	<body>
-		<h1 align="center">�摜�������C���g���[�T�[�i���j</h1>
+		<h1 align="center">画像処理ライントレーサー（仮）</h1>
 		<hr>
-		<h2>�O�D�͂��߂�</h2>
-			���̃y�[�W��<a href ="http://www.adventar.org/calendars/1423">OIT Advent Calendar 2016</a>�̋L���ł��B<br>
-			�܂��A���͕��i�u���O�������Ă��Ȃ����߂��̃y�[�W��HTML�ŏ����Ă��܂��B���̂��߁A�����ڂ������ł������������������B<br>
+		<h2>０．はじめに</h2>
+			このページは<a href ="http://www.adventar.org/calendars/1423">OIT Advent Calendar 2016</a>の記事です。<br>
+			また、私は普段ブログを書いていないためこのページはHTMLで書いています。そのため、見た目が微妙ですがご了承ください。<br>
 			<br>
-			�ł́A�ȒP�Ɏ��ȏЉ��A<br>
-			OIT��IS�ȏ�����B14074�ł��B<br>
-			�������Ƃ��āAUbiquitousRobotLab.�@�w���v���W�F�N�g�Ƃ��āA���Z�v���O���~���O������Ă��܂��B<br>
-			��́A���Z�̕����������Ă��郍�{�b�g����ł��B<br>
-			���̃y�[�W�́A���̎�ł���Ă�����e�̈ꕔ�𒴓K���ɗ͐s����܂ŏ����Ă����܂��B<br>
+			では、簡単に自己紹介から、<br>
+			OITのIS科所属のB14074です。<br>
+			部活動として、UbiquitousRobotLab.　学生プロジェクトとして、競技プログラミングをやっています。<br>
+			趣味は、高校の部活からやっているロボット制作です。<br>
+			このページは、その趣味でやっている内容の一部を超適当に力尽きるまで書いていきます。<br>
 			
 			
-		<h2>�P�D���C���g���[�T�[�Ƃ�</h2>
-		���C���g���[�T�[�Ƃ́A�R�[�X�̒����ɂ�������Z���T�[�ŒT���Ȃ���A���̏�𑖂�Ԍ^���{�b�g�ł��B
-		<img src="�R�[�X.jpg"><br>
-		<img src="�A�h�o���X.jpg"><br>
-		�}�V���̐�[�ɂ��Ă�����̂��ԊO���Z���T�[�ł��B<br><br>
-		<img src="�ԊO��.jpg"><br>
-		���̃Z���T�[�ŃR�[�X�̔����𔻒f���A�����Ǝԑ̂̃Y���𔻒�B<br>
-		�����āA�Y�����C������悤�Ƀn���h�����Ȃ��Ȃ��瑖�s�����܂��B
+		<h2>１．ライントレーサーとは</h2>
+		ライントレーサーとは、コースの中央にある線をセンサーで探しながら、その上を走る車型ロボットです。
+		<img src="コース.jpg"><br>
+		<img src="アドバンス.jpg"><br>
+		マシンの先端についているものが赤外線センサーです。<br><br>
+		<img src="赤外線.jpg"><br>
+		このセンサーでコースの白黒を判断し、白線と車体のズレを判定。<br>
+		そして、ズレを修正するようにハンドルを曲げながら走行させます。
 		
-		<h2>�Q�D�摜���烉�C���ʒu�𔻒f����</h2>
-		�ԊO���Z���T�[�̑���ɁA�J�������g�p���đ��s�����܂��B<br>
-		<img src="�J����.jpg"><br>
-		<img src="�J�����O.jpg"><br>
-		���̃J�����ŎB�e����Ɖ��̂悤�ȉ摜�������܂��B<br><br>
+		<h2>２．画像からライン位置を判断する</h2>
+		赤外線センサーの代わりに、カメラを使用して走行させます。<br>
+		<img src="カメラ.jpg"><br>
+		<img src="カメラ前.jpg"><br>
+		このカメラで撮影すると下のような画像が得られます。<br><br>
 		<img src="2d.jpg"><br>
-		�����āA���ۂ͔����̈ʒu�����f�ł���΂����̂ŁA��s�����g�p���܂��B<br><br>
+		そして、実際は白線の位置が判断できればいいので、一行だけ使用します。<br><br>
 		<img src="1d.jpg"><br>
-		�܂��A��Ԗ��邢�F�̔���128,��ԈÂ��F�̍���0�Ƃ��āA���l��z��Ɋi�[���܂��B<br>
-		�Ȃ��A����bit���͂P�Q�W�Ƃ��܂��B<br>
-		����ƁA�z��̊e���l���O���t������ƈȉ��̂悤�ɂȂ�܂��B<br>
-		�菑���ł����܂���<br>
-		<img src="�O���t.jpg"><br>
-		���ۂ́A�����̋��ڂ��ڂ₯�Č�����̂ŁA��`�g�ł͂Ȃ������g�H�Ȑ��H�ɂȂ�܂��B<br>
-		����ɁA���̃O���t��������܂��B<br>
-		<img src="����.jpg"><br>
-		���̐��l����A�ő�l�ƍŏ��l�̓Y�����������܂��B<br>
-		����ƁAMAX-MIN�������̑����B<br>
-		�iMAX+MIN�j/�Q�������̈ʒu�Ɣ��f�ł��܂��B<br>
+		また、一番明るい色の白は128,一番暗い色の黒は0として、数値を配列に格納します。<br>
+		なお、横のbit数は１２８個とします。<br>
+		すると、配列の各数値をグラフ化すると以下のようになります。<br>
+		手書きですいません<br>
+		<img src="グラフ.jpg"><br>
+		実際は、白黒の境目がぼやけて見えるので、矩形波ではなく正弦波？曲線？になります。<br>
+		さらに、このグラフを微分します。<br>
+		<img src="微分.jpg"><br>
+		この数値から、最大値と最小値の添え字を見つけます。<br>
+		すると、MAX-MINが白線の太さ。<br>
+		（MAX+MIN）/２が白線の位置と判断できます。<br>
 		
 		
-		<h2>�R�D���C���ʒu����n���h���𓮂���</h2>
-		���́A���C���ʒu�����������̂ŁA�n���h�����Ȃ���͂��v�Z���܂��B<br>
-		���@�����āA<a href ="https://ja.wikipedia.org/wiki/PID%E5%88%B6%E5%BE%A1">PID����</a>�Ƃ��ÓT����Ƃ�΂��������g�p���܂��B<br>
-		����͑�ρi�ł������ɂȂ��j�Ȃ̂ŏȗ����܂��B
+		<h2>３．ライン位置からハンドルを動かす</h2>
+		次は、ライン位置が分かったので、ハンドルを曲げる力を計算します。<br>
+		方法そして、<a href ="https://ja.wikipedia.org/wiki/PID%E5%88%B6%E5%BE%A1">PID制御</a>とか古典制御とよばれる方式を使用します。<br>
+		解説は大変（できそうにない）なので省略します。
 		<br><br>
-		���낻�떰���Ȃ��Ă����̂ŏI���܂��B<br>
-		�ǂ�ł��ꂽ���A���肪�Ƃ��������܂��B����������΁A��w���Ŏ���T���Ă��������B<br>
+		そろそろ眠くなってきたので終わります。<br>
+		読んでくれた方、ありがとうございます。興味があれば、大学内で私を探してください。<br>
 		
 	</body>
 </html>
